@@ -20,10 +20,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="57dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/profile_bg"
-            android:gravity="top"
             android:orientation="horizontal"
             android:padding="15dp">
 
@@ -39,12 +38,14 @@
 
             <EditText
                 android:id="@+id/name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:contentDescription="Enter your name"
                 android:ems="10"
-                android:inputType="text"
+                android:inputType="textPersonName"
+                android:padding="8dp"
                 android:textColor="@color/hint_color"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -54,7 +55,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/profile_bg"
-            android:gravity="top"
             android:orientation="horizontal"
             android:padding="15dp">
 
@@ -70,22 +70,23 @@
 
             <EditText
                 android:id="@+id/address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:contentDescription="Enter your address"
                 android:ems="10"
                 android:inputType="textMultiLine"
+                android:padding="8dp"
                 android:textColor="@color/hint_color"
                 android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="57dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/profile_bg"
-            android:gravity="top"
             android:orientation="horizontal"
             android:padding="15dp">
 
@@ -101,46 +102,74 @@
 
             <EditText
                 android:id="@+id/number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:contentDescription="Enter your phone number"
                 android:ems="10"
                 android:inputType="phone"
+                android:padding="8dp"
                 android:textColor="@color/hint_color"
                 android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/profile_bg"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="15dp">
 
             <TextView
                 android:id="@+id/textView19777"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/yeon_sung"
                 android:text="Payment Method"
                 android:textColor="@color/hint_color"
                 android:textSize="14sp" />
 
-            <ImageView
-                android:id="@+id/profile_number7777"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:src="@drawable/cash_on_delivery_photo"
-                android:textSize="14sp" />
+            <RadioGroup
+                android:id="@+id/paymentMethodGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:contentDescription="Cash on delivery"
+                    android:fontFamily="@font/yeon_sung"
+                    android:padding="8dp"
+                    android:text="Cash on Delivery"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/radioStripe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp"
+                    android:contentDescription="Pay with Stripe"
+                    android:fontFamily="@font/yeon_sung"
+                    android:padding="8dp"
+                    android:text="Pay with Stripe"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </RadioGroup>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="57dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/profile_bg"
             android:gravity="center"
@@ -163,6 +192,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:contentDescription="Total amount"
                 android:textColor="@color/green"
                 android:textSize="19sp" />
         </LinearLayout>
@@ -178,7 +208,9 @@
         android:layout_marginBottom="32dp"
         android:background="@drawable/proceed_bg"
         android:backgroundTint="@color/red"
+        android:contentDescription="Place my order"
         android:fontFamily="@font/yeon_sung"
+        android:padding="8dp"
         android:text="Place My Order"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -194,6 +226,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_arrow_icon" />
