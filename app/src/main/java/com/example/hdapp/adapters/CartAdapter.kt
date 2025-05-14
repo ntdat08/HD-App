@@ -98,6 +98,7 @@ class CartAdapter(
                     val itemPosition = adapterPosition
                     if (itemPosition != RecyclerView.NO_POSITION) {
                         deleteItem(itemPosition)
+                        notifyDataSetChanged()
                     }
                 }
 
@@ -132,32 +133,25 @@ class CartAdapter(
         }
 
         private fun removeItems(position: Int, uniqueKey: String) {
-            if (uniqueKey != null){
-                cartRef.child(uniqueKey).removeValue().addOnSuccessListener {
-                    name.removeAt(position)
-                    image.removeAt(position)
-                    price.removeAt(position)
-                    cartDescription.removeAt(position)
-                    cartQuantity.removeAt(position)
-                    cartIngredient.removeAt(position)
+            cartRef.child(uniqueKey).removeValue().addOnSuccessListener {
+                name.removeAt(position)
+                price.removeAt(position)
+                cartDescription.removeAt(position)
+                image.removeAt(position)
+                cartQuantity.removeAt(position)
+               // cartIngredient.removeAt(position)
 
-                    // Update Quantities
+                itemQuantits =
+                    itemQuantits.filterIndexed { index, _ -> index != position }.toIntArray()
+                notifyItemRemoved(position)
+                notifyItemRangeChanged(position, itemCount)
 
-//                    notifyItemRemoved(cartQuantity[position])
-
-                    cartQuantity = cartQuantity.filterIndexed { index, i -> index != position }.toMutableList()
-
-                    notifyItemRemoved(position)
-                    notifyItemRangeChanged(position, name.size)
-
-                    Toast.makeText(context, "Item removed successfully", Toast.LENGTH_SHORT).show()
-
-//                    cartQuantity = cartQuantity.filterIndexed { index, i -> index != position }.toIntArray()
-                } .addOnFailureListener {
-                    Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show()
-                }
+                Toast.makeText(context, "Item removed successfully", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show()
             }
         }
+
 
         private fun getUniqueKeyAtPosition(positionRetrieve: Int, onComplete: (String?) -> Unit) {
 

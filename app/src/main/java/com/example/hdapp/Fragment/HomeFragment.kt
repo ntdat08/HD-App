@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
 
         // Get reference to the database
         database = FirebaseDatabase.getInstance()
-        val foodRef: DatabaseReference = database.reference.child("Menu")
+        val foodRef: DatabaseReference = database.reference.child("AllMenu")
         menuItems = mutableListOf()
 
         // Retrieve data from database

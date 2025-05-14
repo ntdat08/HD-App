@@ -66,10 +66,10 @@ class ProfileFragment : Fragment() {
 
         binding.save.setOnClickListener {
 
-            val name = binding.profileName.toString()
-            val email = binding.profileEmail.toString()
-            val address = binding.profileAddress.toString()
-            val number = binding.profileNumber.toString()
+            val name = binding.profileName.text.toString()
+            val email = binding.profileEmail.text.toString()
+            val address = binding.profileAddress.text.toString()
+            val number = binding.profileNumber.text.toString()
 
             // Update user data
             updateUserData(name, email, address, number)

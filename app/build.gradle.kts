@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.hdapp"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -56,10 +56,12 @@ dependencies {
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
 
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
@@ -73,4 +75,6 @@ dependencies {
     implementation("com.google.firebase:firebase-storage")
 
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
 }

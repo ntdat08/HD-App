@@ -45,7 +45,7 @@ class SearchFragment : Fragment() {
         database = FirebaseDatabase.getInstance()
 
         // Reference ton the menu node
-        val foodReference : DatabaseReference = database.reference.child("Menu")
+        val foodReference : DatabaseReference = database.reference.child("AllMenu")
         foodReference.addListenerForSingleValueEvent(object  : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(foodSnapshot in snapshot.children){
